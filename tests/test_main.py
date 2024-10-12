@@ -28,7 +28,11 @@ def test_get_notes():
 
 def test_create_note():
     """Test the POST /notes endpoint."""
-    note_data = {"content": "Test note"}
+    note_data = {
+        "content": "Test note",
+        "title": "Test Title"  # Include other required fields
+    }
     response = client.post("/notes", json=note_data)
     assert response.status_code == 200
     assert response.json()  # Should return a UUID for the new note
+
