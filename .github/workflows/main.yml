@@ -22,7 +22,7 @@ jobs:
           fetch-depth: 1
           
       - name: Set up Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
           
@@ -37,3 +37,6 @@ jobs:
       - name: Upload coverage reports to Codecov
         if: runner.os == 'Linux'  # Upload coverage reports only from Linux
         uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.TOKEN }}
+
