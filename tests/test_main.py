@@ -28,9 +28,12 @@ def test_get_notes():
 
 def test_create_note():
     """Test the POST /notes endpoint."""
-    note_data = {"content": "Test note"}  # Adjust if necessary
+    note_data = {
+        "title": "Test Note Title",        # Include title
+        "description": "This is a test note.",  # Include description
+        "content": "Test note"              # Include content
+    }
     response = client.post("/notes", json=note_data)
-    print(response.json())  # Print the response body
-    assert response.status_code == 200
-
+    print(response.json())  # Print the response body for debugging
+    assert response.status_code == 200  # Check for a successful response
 
