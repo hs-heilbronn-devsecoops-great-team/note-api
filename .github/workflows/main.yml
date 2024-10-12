@@ -19,6 +19,6 @@ jobs:
       - name: Install development dependencies
         run: pip install -r requirements-dev.txt
       - name: Run pytest
-        run: pytest --cov=noteapi -n auto
+        run: pytest --cov=noteapi
       - name: Upload coverage reports to Codecov
         uses: codecov/codecov-action@v3
