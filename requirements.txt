@@ -7,3 +7,4 @@ opentelemetry-api
 opentelemetry-exporter-gcp-trace
 opentelemetry-instrumentation-fastapi
 opentelemetry-sdk
+httpx
