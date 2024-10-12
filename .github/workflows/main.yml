@@ -1,0 +1,26 @@
+name: Python Testing Pipeline 
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test-suite:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          fetch-depth: 0
+      - name: set up Python 
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.9
+      - name: Install all dependencies
+        run: |
+          pip install -r requirements.txt
+          pip install -r dev-requirements.txt
+      - name:  Run tests with pytest
+        run:  pytest --cov=myapp
+      - name: Upload coverage report to Coveralls
+        uses: coverallsapp/github-action@v2
